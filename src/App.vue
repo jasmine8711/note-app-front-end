@@ -3,11 +3,10 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link to="/about">About</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/">Notes</router-link>
+          <li class="li pull-right">
+            <router-link to="/">
+              <i class="fas fa-home"></i>
+            </router-link>
           </li>
           <router-view></router-view>
         </ul>
@@ -19,11 +18,15 @@
 <script>
 export default {
   name: "app",
-  data: {},
-
-  components: {}
+  data() {
+    return {};
+  },
+  computed: {}
 };
 </script>
 
 <style>
+.li {
+  list-style: none;
+}
 </style>
