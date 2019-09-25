@@ -8,8 +8,8 @@
           <label>Title</label>
           <input type="text" class="form-control" placeholder="Title" v-model="note.title" />
           <label>Note</label>
-          <textarea class="form-control" v-model="note.content"></textarea>
-          <button type="submit" @click="addNote" class="btn btn-primary">Submit</button>
+          <textarea class="form-control mb-2" v-model="note.content"></textarea>
+          <button class="btn btn-warning" id="submit" type="submit" @click="addNote">Submit</button>
         </div>
       </div>
     </form>
@@ -52,4 +52,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#submit {
+  margin-top: 15px;
+}
 </style>

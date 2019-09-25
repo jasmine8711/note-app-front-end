@@ -9,7 +9,7 @@
           <input type="text" class="form-control" placeholder="title" v-model="note.title" />
           <label>Note</label>
           <textarea class="form-control" v-model="note.content"></textarea>
-          <button type="submit" v-on:click="updateNote" class="btn btn-primary">Submit</button>
+          <button type="submit" v-on:click="updateNote" class="btn submit btn-primary">Submit</button>
         </div>
       </div>
     </form>
@@ -46,9 +46,11 @@ export default {
         this.alert = "please fill in all";
       } else {
         this.$http
-          .put(
-            `http://127.0.0.1./notes/update.php?title=${this.note.title}&&content=${this.note.content}`
-          )
+          .put(`http://127.0.0.1./notes/update.php`, {
+            id: this.note.id,
+            title: this.note.title,
+            content: this.note.content
+          })
           .then(function(response) {
             console.log(response);
             this.$router.push({ path: "/", query: { alert: "Note updated!" } });
@@ -65,4 +67,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.submit {
+  margin-top: 10px;
+}
 </style>

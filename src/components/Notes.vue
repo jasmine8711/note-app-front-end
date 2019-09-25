@@ -71,6 +71,11 @@ export default {
         .delete("http://127.0.0.1./notes/delete.php?id=" + id)
         .then(function(response) {
           console.log(response);
+          for (let i = 0; i < this.notes.length; i++) {
+            if (this.notes[i].id == id) {
+              this.notes.splice(i, 1);
+            }
+          }
         });
     }
   },
